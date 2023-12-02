@@ -19,12 +19,12 @@ timezone:
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: NetSec Chronicles                          # the main title
+title: Orionilloc                          # the main title
 
 tagline: Sharing security write-ups, homelab construction, and occasional thoughts   # it will display as the sub-title
 
 description: >-                        # used by seo meta and the atom feed
-  A blog sharing security write-ups, homelab construction, and occasional thoughts
+ Sharing security write-ups, homelab construction, and occasional thoughts
 
 # fill in the protocol & hostname for your site, e.g., 'https://username.github.io'
 url: 'https://orionilloc.github.io'
