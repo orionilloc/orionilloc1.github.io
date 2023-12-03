@@ -8,14 +8,14 @@ img_path: /assets/img/Tardigrade/
 ---
 
 # Introduction
-Today, we will be exploring TryHackMe's Tardigrade room found at: `https://tryhackme.com/room/tardigrade`. This challenge is marked as medium difficulty and involves a quick look at fundamental Linux forensics and persistence techniques. The room name is a nod to the hardy tardigrade  I suppose that a tardigrade wouldn't mind living physically living inside a computer. Like the previous room I completed, this room is still more a guided learning experience than an actual challenge. That's okay, though. I'll work my way to additional blue-team themed challenges that involve less handholding soon enough.
+Today, we will be exploring TryHackMe's Tardigrade room found at: `https://tryhackme.com/room/tardigrade`. This challenge is marked as medium difficulty and involves a quick look at fundamental Linux forensics and persistence techniques. The room name is a nod to the hardy tardigrade. I suppose that a tardigrade wouldn't mind living physically living inside a computer. Like the previous room I completed, this room is still more a guided learning experience than an actual challenge. That's okay, though. I'll work my way to additional blue-team themed challenges that involve less handholding soon enough.
 
 > You'll need to start this room by using `ssh` to remote into the machine we need to investigate.
 {: .prompt-info }
 
 # Questions
 ## Task 1 Q1: What is the server's OS version?
-Our Incident Response team has graciously handed over the credentials for one of the users on this system (in plaintext, might I add!). Upon logging in to the server, you'll be confronted with a friendly motd (message of the day) which contains our first answer. A piece of hardware's motd can be usually configured to whatever the user might want. In this case, the default Ubuntu motd is being displayed. The server's OS version is displayed at the very top of the motd.
+Our Incident Response team has graciously handed over the credentials for one of the users on this system (in plaintext, might I add!). Upon logging in to the server, you'll be confronted with a friendly motd (message of the day) which contains our first answer. A motd can be usually configured to whatever the user might want. In this case, the default Ubuntu motd is being displayed. The server's OS version is displayed at the very top of the motd.
 
 ![question1info](/T1Q1.png)
 
@@ -34,7 +34,7 @@ I don't see anything out of the ordinary here. However, if you scroll further do
 ![question2info](/T2Q2SusLsAlias.png)
 
 ## Task 2 Q3: Did you find anything interesting about scheduled tasks?
-The question is here asking us to check out any cronjobs that might be doing anything malicious as an additional form of persistence. I used the `crontab -e` command to check it out. There's only cronjob listed in here- definitely not a cronjob that I would want running on any machine I own.
+The question is here asking us to check out any cronjobs that might be doing anything malicious as an additional form of persistence. I used the `crontab -e` command to check it out. There's only one cronjob listed in here- definitely not a cronjob that I would want running on any machine I own.
 
 ![question2info](/T2Q3ScheduledTasks.png)
 
@@ -70,7 +70,7 @@ Press enter a couple times and you're presented with the suspicious command. A r
 If you were like me, you were probably a bit stumped here. All I did was log in to the system as root. Naturally, I thought about the priority of bash configuration files, naturally. You'll need to change directory to the root directory and locate this bash configuration file there.
 
 ## Task 5 Q1: What is the last persistence mechanism?
-We've already looked through forms of persistence using cronjobs, bash configuration files, and aliases. What else might there be to explore? The question guides us to look at something or someone, specifically. It's important to read these directions carefully. The traditional way of viewing all users is by looking at the /etc/passwd file, which contains all users on the system. As usual, you see the extensive list of users on this Ubuntu machine. Of course, these aren't actual users with say, a person sitting behind a keyboard. These are primarily users for system and daemon management. You can think of it like a separation of duties- so that certain processes are only being invoked within the context of a particular user. If a service fails or gets compromised, it won't necessarily affect other services or users. I recalled that there was always one particular user in /etc/passwd that always seemed off to me, like a shadowy entity residing on my system. I even recall searching about this particular user a couple of times in the past year. It's normal to have that user, though. I'll have to mention the answer directly here, which is the `nobody` user. I was perplexed and needed to read more about this specific user. I will admit, I would have spent far too long on this question. I got pretty lucky when recalling interesting looking users on a Linux system.
+We've already looked through forms of persistence using cronjobs, bash configuration files, and aliases. What else might there be to explore? The question guides us to look at something or someone, specifically. The traditional way of viewing all users is by looking at the /etc/passwd file, which contains all users on the system. As usual, you see the extensive list of users on this Ubuntu machine. Of course, these aren't actual users with say, a person sitting behind a keyboard. These are primarily users for system and daemon management. You can think of it like a separation of duties- so that certain processes are only being invoked within the context of a particular user. If a service fails or gets compromised, it won't necessarily affect other services or users. I recalled that there was always one particular user in /etc/passwd that always seemed off to me, like a shadowy entity residing on my system. I even recall searching about this particular user a couple of times in the past year. It's normal to have that user, though. I'll have to mention the answer directly here, which is the `nobody` user. I was perplexed and needed to read more about this specific user. I will admit, I would have spent far too long on this question. I got pretty lucky when recalling interesting looking users on a Linux system.
 
 ## Task 6 Q1: Finally, as you've already found the final persistence mechanism, there's value in going all the way through to the end. The adversary left a golden nugget of "advise" somewhere. What is the nugget?
 I like to start with the obvious here- which is trying to directly log in to a service or user account with default or default-ish credentials. I came back to this room and used `ssh` to log directly into the user account we want to access using the username of the service we suspected of compromise. I lucked out since the login username and password were the exact same. From there, I simply ran an `ls -al` to view any hidden files or dotfiles within the nobody home directory. Considering we've found other flags that way, I figured that was the way to go.
@@ -80,4 +80,4 @@ I like to start with the obvious here- which is trying to directly log in to a s
 The .youfoundme file looks interesting. Just `cat` out the contents of that file to obtain the flag.
 
 # Conclusion
-That was a fun room with a lot of lucky moments on my first runthrough. I especially enjoyed learning about the specific user account used to maintain persistence. I wasn't familiar with that aspect. Take care and see you soon.
+That was a fun room with a lot of lucky moments on my first runthrough. I especially enjoyed learning about the specific user account used to maintain persistence. I would encourage you to do some additional reading on that specific user here. Take care and see you soon.
