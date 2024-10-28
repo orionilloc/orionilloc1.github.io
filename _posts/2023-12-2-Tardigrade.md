@@ -8,7 +8,7 @@ img_path: /assets/img/Tardigrade/
 ---
 
 # Introduction
-Today, we will be exploring TryHackMe's Tardigrade room found at: `https://tryhackme.com/room/tardigrade`. This challenge is marked as medium difficulty and involves a quick look at fundamental Linux forensics and persistence techniques. The room name is a nod to the hardy tardigrade. I suppose that a tardigrade wouldn't mind living physically living inside a computer. Like the previous room I completed, this room is still more a guided learning experience than an actual challenge. That's okay, though. I'll work my way to additional blue-team themed challenges that involve less handholding soon enough.
+Today, we will be exploring TryHackMe's Tardigrade room found at: `https://tryhackme.com/room/tardigrade`. This challenge is marked as medium difficulty and involves a quick look at fundamental Linux forensics and persistence techniques. Like the previous room I completed, this room is still more a guided learning experience than an actual challenge. That's okay, though. I'll work my way to additional blue-team themed challenges that involve less handholding soon enough.
 
 > You'll need to start this room by using `ssh` to remote into the machine we need to investigate.
 {: .prompt-info }
@@ -55,7 +55,7 @@ To begin, we'll need to effectively log in as root. But we don't know the creden
 
 ![question4info](/sudo-l.png)
 
-Great! Knowing that we can become root, let's go ahead by using the `sudo su` command.
+Great! Knowing that we can become root, let's go ahead and do that by using the `sudo su` command.
 
 ![question4info](/T4Q1loginasrootsudosu.png)
 
@@ -80,4 +80,4 @@ I like to start with the obvious here- which is trying to directly log in to a s
 The .youfoundme file looks interesting. Just `cat` out the contents of that file to obtain the flag.
 
 # Conclusion
-That was a fun room with a lot of lucky moments on my first runthrough. I especially enjoyed learning about the specific user account used to maintain persistence. I would encourage you to do some additional reading on that specific user here. Take care and see you soon.
+That was a fun room with a lot of lucky moments on my first runthrough. I especially enjoyed learning about the specific user account used to maintain persistence. I would encourage you to do some additional reading on that specific user here.

@@ -45,7 +45,7 @@ You could find this information from typing `ls -als`. You really only need to p
 ![question8info](Q8FileLastModified.png)
 
 ## Q9: What is the name of the file that will get created when the file from the first question executes?
-Read the shell script that's been generated. There's even a version history at the top of the script. It's pretty goofy as a script, but you can clearly recognize the fictitous malicious actor's intended result.
+Read the shell script that's been generated. There's even a version history at the top of the script. It's pretty goofy as a script, but you can clearly recognize the fictitous malicious actor's intentions.
 ![question9info](Q9Script.png)
 
 ## Q10: At what time will the malicious file trigger? (Format: HH:MM AM/PM)
@@ -57,4 +57,4 @@ By reading the `.bash_history` file from before, you'll know that the script is 
 ![question10info](Q10Crontab.png)
 
 # Conclusion
-We just investigated a fictional, if entertaining logic bomb investigation. I cannot tell if you this is remotely close to a real life incident response, clean-up, or facting-finding session. However, I did have a good time with it. This challenge room still gives a sense of narrative with the brief investigation. Disgruntled former employee plants a logic bomb on this Linux system. Said logic bomb in the form of a script removes a presumably mission critical application or resource. Evidence of execution can be found using Linux commands found on the system. I hope this writeup gave you something new to use in your arsenal. Cheers!
+We just investigated a fictional, if entertaining logic bomb investigation. I cannot tell if you this is remotely close to a real life incident response, clean-up, or facting-finding session. However, I did have a good time with it. This challenge room still gives a sense of narrative with the brief investigation. Disgruntled former employee plants a logic bomb on this Linux system. Said logic bomb in the form of a script removes a presumably mission critical application or resource. Evidence of execution can be found using Linux commands found on the system. I hope this writeup gave you something new to use in your arsenal.

@@ -182,6 +182,7 @@ compress_html:
 exclude:
   - '*.gem'
   - '*.gemspec'
+  - "_posts/Post-Template.md"
   - tools
   - README.md
   - CHANGELOG.md
